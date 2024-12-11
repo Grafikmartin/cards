@@ -1,0 +1,211 @@
+:root {
+	--prime: 255, 110, 72;
+	--ciBlue: 0, 255, 241;
+	--ciRed: 255, 0, 170;
+	--ciWhite: 255, 255, 255;
+	--ciGreen: 70, 252, 180;
+	--ciSecond: 245, 242, 255;
+}
+
+$roboto: "Roboto";
+
+@font-face {
+	font-family: $roboto;
+	src: url("https://assets.codepen.io/907368/Roboto-Bold.ttf");
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: $roboto;
+	src: url("https://assets.codepen.io/907368/Roboto-Regular.ttf");
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: $roboto;
+	src: url("https://assets.codepen.io/907368/Roboto-Light.ttf");
+	font-weight: 300;
+}
+
+body,
+html {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(var(--ciSecond));
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+	color: rgb(var(--ciWhite));
+	font-family: $roboto;
+	overflow-x: hidden;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--clr-font: rgb(60, 49, 91);
+	--clr-highlight: rgb(226, 223, 254);
+}
+
+nav {
+	display: flex;
+	position: relative;
+	&.animate {
+		.slider {
+			transition: all 350ms ease-in-out;
+		}
+	}
+	&:hover {
+		.slider {
+			opacity: 1;
+		}
+	}
+	.slider {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 7rem;
+		height: 100%;
+		background-color: var(--clr-highlight);
+		border-radius: 3rem;
+		transition-delay: 150ms;
+		transition: opacity 250ms ease;
+	}
+	ul {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+		margin: 0;
+		padding: 0;
+		li {
+			list-style: none;
+			position: relative;
+			&:hover {
+				a {
+					img {
+						scale: 1;
+						margin: 0 0.5rem 0 0;
+					}
+				}
+				ul {
+					height: 8.5rem;
+					opacity: 1;
+				}
+			}
+			a {
+				width: 7rem;
+				padding: 0.8rem 2rem;
+				border-radius: 3rem;
+				font-size: 0.8rem;
+				color: var(--clr-font);
+				cursor: pointer;
+				transition: all 350ms ease-in-out;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+
+				img {
+					width: 1rem;
+					height: 1rem;
+					scale: 0;
+					margin: 0 -1rem 0 0;
+					transform-origin: -0.4rem 50%;
+					transition: all 350ms ease-in-out;
+				}
+			}
+			ul {
+				position: absolute;
+				overflow: hidden;
+				top: 110%;
+				width: 100%;
+				height: 0;
+				opacity: 0;
+				transition: all 350ms ease-in-out;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				background-color: white;
+				border-radius: 1rem;
+				gap: 0.1rem;
+				padding: 0.2rem 0;
+				li {
+					padding: 0 0.2rem;
+					margin: 0;
+					width: 100%;
+					list-style: none;
+					a {
+						width: 100%;
+						border-radius: 0.95rem;
+						padding: 0.5rem 0.5rem;
+						&:hover {
+							background-color: var(--clr-highlight);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+body header {
+    background-color: blue;
+}
+
+main {
+	width: 100%;
+	height: 100vh;
+	color: rgb(var(--prime));
+	span.grey {
+		color: rgba(var(--ciWhite), 0.3);
+	}
+	&.shadow {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 1000;
+		pointer-events: none;
+		background-color: rgb(var(--prime));
+		color: rgb(var(--ciSecond));
+		background-size: var(--size);
+		mask-image: url("https://assets.codepen.io/907368/mask.svg");
+		mask-repeat: no-repeat;
+		mask-origin: content-box;
+		mask-size: var(--size);
+		mask-position: calc(var(--posX) - var(--size) / 2)
+				calc(var(--posY) - var(--size) / 2),
+			center;
+	}
+	section {
+		width: 100%;
+		height: 100vh;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		p {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			font-size: 5rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			cursor: none;
+			margin: 0;
+			padding: 4rem;
+			line-height: 1em;
+		}
+	}
+}
